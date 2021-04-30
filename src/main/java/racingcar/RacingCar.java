@@ -1,9 +1,11 @@
 package racingcar;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 import racingcar.business.RacingCarUi;
 import racingcar.model.Cars;
+import racingcar.model.Laps;
 
 public class RacingCar {
     
@@ -12,6 +14,30 @@ public class RacingCar {
         RacingCarUi ui = new RacingCarUi(scanner);
 
         Cars cars = createCars(ui);
+        Laps laps = createLaps(ui);
+    }
+
+    private static Laps createLaps(RacingCarUi ui) {
+        Optional<Laps> laps;
+
+        do {
+            laps = askLaps(ui);
+        } while (!laps.isPresent());
+
+        return laps.get();
+    }
+
+    private static Optional<Laps> askLaps(RacingCarUi ui) {
+        Optional<Laps> laps;
+
+        try {
+            laps = Optional.of(new Laps(ui.askLaps()));
+        } catch (IllegalArgumentException e) {
+            laps = Optional.empty();
+            ui.showMessage(e.getMessage());
+        }
+
+        return laps;
     }
 
     public static Cars createCars(RacingCarUi ui) {
