@@ -9,11 +9,11 @@ import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.etc.Message;
 
 public class LapsTest {
-    
+
     @ParameterizedTest
-    @ValueSource(ints = {0, -1})
+    @ValueSource(strings = {"0", "-1"})
     @DisplayName("Laps 생성시 1미만의 파라메터 입력시 exception 발생하는지 확인.")
-    void validateOneOrMore(int param) {
+    void validateOneOrMore(String param) {
         assertThatThrownBy(() -> {new Laps(param);})
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining(Message.LESS_THAN_1.getText());
