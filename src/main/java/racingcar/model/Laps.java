@@ -3,7 +3,7 @@ package racingcar.model;
 import racingcar.etc.Message;
 
 public class Laps {
-    
+
     private final int totalLaps;
 
     public Laps() {
@@ -11,7 +11,12 @@ public class Laps {
     }
 
     public Laps(String input) {
-        int inputLaps = Integer.parseInt(input);
+        int inputLaps;
+        try {
+            inputLaps = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(Message.ONLY_NUMBER.getText());
+        }
 
         validateOneOrMore(inputLaps);
 

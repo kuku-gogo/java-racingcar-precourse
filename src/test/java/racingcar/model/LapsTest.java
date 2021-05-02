@@ -18,4 +18,13 @@ public class LapsTest {
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining(Message.LESS_THAN_1.getText());
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"abc", "aaa", "t"})
+    @DisplayName("숫자 타입이 아닌값을 입력시 exception 발생하는지 확인.")
+    void valideteNumber(String param) {
+        assertThatThrownBy(() -> {new Laps(param);})
+            .isInstanceOf(IllegalArgumentException.class)
+            .hasMessageContaining(Message.ONLY_NUMBER.getText());
+    }
 }
