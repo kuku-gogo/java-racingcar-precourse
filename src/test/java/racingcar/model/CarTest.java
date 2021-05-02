@@ -10,7 +10,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.etc.Message;
 
 class CarTest {
-    
+
     @ParameterizedTest
     @NullAndEmptySource
     @DisplayName("Car 생성시 매개변수가 null or 빈값일때 exception이 발생하는지 확인.")

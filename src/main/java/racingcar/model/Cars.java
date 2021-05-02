@@ -18,7 +18,7 @@ public class Cars {
 
         carList = new ArrayList<>();
         List<String> carNames = Arrays.asList(input.split(","));
-        
+
         for (String carName : carNames) {
             carList.add(new Car(carName));
         }
@@ -33,4 +33,21 @@ public class Cars {
     public int count() {
         return carList.size();
     }
+
+    public void run() {
+        for (Car car : carList) {
+            car.run();
+        }
+    }
+
+	public Object getRecords() {
+        StringBuilder result = new StringBuilder();
+
+        for (Car car : carList) {
+            result.append(car.printRecords());
+            result.append("\n");
+        }
+
+		return result.toString();
+	}
 }

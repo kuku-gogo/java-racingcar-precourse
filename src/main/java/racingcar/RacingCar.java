@@ -3,18 +3,22 @@ package racingcar;
 import java.util.Optional;
 import java.util.Scanner;
 
+import racingcar.business.Race;
 import racingcar.business.RacingCarUi;
 import racingcar.model.Cars;
 import racingcar.model.Laps;
 
 public class RacingCar {
-    
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         RacingCarUi ui = new RacingCarUi(scanner);
 
         Cars cars = createCars(ui);
         Laps laps = createLaps(ui);
+        Race race = new Race(cars, laps);
+
+        ui.showMessage(race.start());
     }
 
     private static Laps createLaps(RacingCarUi ui) {
@@ -61,5 +65,5 @@ public class RacingCar {
         }
 
         return cars;
-    } 
+    }
 }

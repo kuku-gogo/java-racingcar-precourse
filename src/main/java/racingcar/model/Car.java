@@ -1,14 +1,19 @@
 package racingcar.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
+import java.util.function.IntPredicate;
 
 import racingcar.etc.Message;
+import racingcar.etc.Utils;
 
 public class Car {
     public static final int CAR_NAME_MAX_LENGTH = 5;
 
     private final String id;
     private final String name;
+    private Records records;
 
     public Car(final String name) {
         validateNoneOrEmpty(name);
@@ -16,6 +21,7 @@ public class Car {
 
         this.id = UUID.randomUUID().toString();
         this.name = name;
+        this.records = new Records(name);
     }
 
     public void validateNoneOrEmpty(String name) {
@@ -29,4 +35,19 @@ public class Car {
             throw new IllegalArgumentException(Message.CAR_NAME_LESS_THAN_FIVE.getText());
         }
     }
+
+    public void run() {
+        int random = Utils.crateRandomIntZeroToNine();
+
+        if (0 <= random && 3 >= random) {
+            this.records.addRecord(0);
+            return;
+        }
+
+        this.records.addRecord(1);
+    }
+
+	public String printRecords() {
+		return this.records.toString();
+	}
 }
