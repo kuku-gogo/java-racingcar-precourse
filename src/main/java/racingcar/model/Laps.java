@@ -1,7 +1,5 @@
 package racingcar.model;
 
-import java.util.function.IntPredicate;
-
 import racingcar.etc.Message;
 
 public class Laps {

@@ -2,7 +2,11 @@ package racingcar.model;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
@@ -27,5 +31,26 @@ class CarsTest {
         Cars cars = new Cars(param);
 
         assertThat(cars.count()).isEqualTo(count);
+    }
+
+    @Test
+    void sort() {
+        List<Car> list = new ArrayList<>();
+        Car car01 = new Car("car01");
+        Car car02 = new Car("car02");
+        Car car03 = new Car("car03");
+        car01.addRecord(2);
+        car02.addRecord(3);
+        car03.addRecord(1);
+        list.add(car01);
+        list.add(car02);
+        list.add(car03);
+        Cars cars = new Cars(list);
+        cars.sort();
+        List<Car> result = cars.getCars();
+
+        assertThat(result.get(0).getName()).isEqualTo("car03");
+        assertThat(result.get(1).getName()).isEqualTo("car01");
+        assertThat(result.get(2).getName()).isEqualTo("car02");
     }
 }

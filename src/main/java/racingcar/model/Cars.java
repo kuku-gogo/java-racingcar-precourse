@@ -24,6 +24,10 @@ public class Cars {
         }
     }
 
+    protected Cars(List<Car> carsList) {
+        this.carList = carsList;
+    }
+
     public void validateNoneOrEmpty(String input) {
         if (input == null || "".equals(input)) {
             throw new IllegalArgumentException(Message.CAR_NAME_REQUIRED.getText());
@@ -49,5 +53,13 @@ public class Cars {
         }
 
 		return result.toString();
+	}
+
+    public void sort() {
+        this.carList.sort((a, b) -> a.compareRecord(b));
+    }
+
+	protected List<Car> getCars() {
+        return this.carList;
 	}
 }

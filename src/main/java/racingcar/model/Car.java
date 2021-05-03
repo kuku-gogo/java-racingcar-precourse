@@ -1,9 +1,6 @@
 package racingcar.model;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
-import java.util.function.IntPredicate;
 
 import racingcar.etc.Message;
 import racingcar.etc.Utils;
@@ -50,4 +47,20 @@ public class Car {
 	public String printRecords() {
 		return this.records.toString();
 	}
+
+    public int getTotalRecord() {
+        return this.records.getTotalRecords();
+    }
+
+    protected void addRecord(int record) {
+        this.records.addRecord(record);
+    }
+
+    public int compareRecord(Car othreCar) {
+        return this.getTotalRecord() - othreCar.getTotalRecord()  ;
+    }
+
+    public String getName() {
+        return this.name;
+    }
 }

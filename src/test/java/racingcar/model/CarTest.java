@@ -3,6 +3,7 @@ package racingcar.model;
 import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -35,5 +36,17 @@ class CarTest {
     void validateLessThanFive_pass(String param) {
         assertThat(new Car(param))
             .hasFieldOrPropertyWithValue("name", param);
+    }
+
+    @Test
+    @DisplayName("Car 레코드 비교 함수 검증.")
+    void compareRecord() {
+        Car car = new Car("car");
+        Car otherCar = new Car("other");
+
+        car.addRecord(4);
+        otherCar.addRecord(2);
+
+        assertThat(car.compareRecord(otherCar)).isPositive();
     }
 }
