@@ -40,7 +40,7 @@ public class Cars {
         }
     }
 
-	public Object getRecords() {
+	public String getRecords() {
         StringBuilder result = new StringBuilder();
 
         for (Car car : carList) {

@@ -13,15 +13,17 @@ public class Race {
     }
 
 	public String start() {
-        cars.run();
+        StringBuilder result = new StringBuilder("실행 결과\n");
+        for (int i = 0; i < laps.getCount(); i++) {
+            cars.run();
+            result.append(createAllRecords());
+            result.append("\n");
+        }
 
-        return createAllRecords();
+        return result.toString();
 	}
 
     public String createAllRecords() {
-        StringBuilder result = new StringBuilder("실행 결과\n");
-        result.append(cars.getRecords());
-
-        return result.toString();
+        return cars.getRecords();
     }
 }

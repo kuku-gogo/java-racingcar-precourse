@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import java.util.function.IntPredicate;
+
 import racingcar.etc.Message;
 
 public class Laps {
@@ -27,5 +29,9 @@ public class Laps {
         if (totalLaps < 1) {
             throw new IllegalArgumentException(Message.LESS_THAN_1.getText());
         }
+        
+    }
+    public int getCount() {
+        return this.totalLaps;
     }
 }

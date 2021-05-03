@@ -3,6 +3,7 @@ package racingcar.model;
 import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -26,5 +27,14 @@ public class LapsTest {
         assertThatThrownBy(() -> {new Laps(param);})
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining(Message.ONLY_NUMBER.getText());
+    }
+
+    @Test
+    @DisplayName("랩의 갯수 조회.")
+    void getCount() {
+        int count = 5;
+        Laps laps = new Laps(String.valueOf(count));
+
+        assertThat(laps.getCount()).isEqualTo(count);
     }
 }
