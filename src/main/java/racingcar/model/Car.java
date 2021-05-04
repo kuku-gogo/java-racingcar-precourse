@@ -8,7 +8,6 @@ import racingcar.etc.Utils;
 public class Car {
     public static final int CAR_NAME_MAX_LENGTH = 5;
 
-    private final String id;
     private final String name;
     private Records records;
 
@@ -16,7 +15,6 @@ public class Car {
         validateNoneOrEmpty(name);
         validateLessThanFive(name);
 
-        this.id = UUID.randomUUID().toString();
         this.name = name;
         this.records = new Records(name);
     }
