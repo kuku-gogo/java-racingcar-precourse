@@ -44,7 +44,7 @@ public class Cars {
         }
     }
 
-	public String getRecords() {
+	public String getRecordsText() {
         StringBuilder result = new StringBuilder();
 
         for (Car car : carList) {
@@ -55,11 +55,7 @@ public class Cars {
 		return result.toString();
 	}
 
-    public void sort() {
-        this.carList.sort((a, b) -> a.compareRecord(b));
-    }
-
-	protected List<Car> getCars() {
+	protected List<Car> getCarList() {
         return this.carList;
 	}
 }

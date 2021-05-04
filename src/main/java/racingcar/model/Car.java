@@ -5,7 +5,7 @@ import java.util.UUID;
 import racingcar.etc.Message;
 import racingcar.etc.Utils;
 
-public class Car {
+public class Car implements Comparable<Car> {
     public static final int CAR_NAME_MAX_LENGTH = 5;
 
     private final String name;
@@ -54,11 +54,12 @@ public class Car {
         this.records.addRecord(record);
     }
 
-    public int compareRecord(Car othreCar) {
-        return this.getTotalRecord() - othreCar.getTotalRecord()  ;
-    }
-
     public String getName() {
         return this.name;
+    }
+
+    @Override
+    public int compareTo(Car otherCar) {
+		return this.getTotalRecord() - otherCar.getTotalRecord();
     }
 }

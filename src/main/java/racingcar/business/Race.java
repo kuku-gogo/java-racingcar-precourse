@@ -16,14 +16,14 @@ public class Race {
         StringBuilder result = new StringBuilder("실행 결과\n");
         for (int i = 0; i < laps.getCount(); i++) {
             cars.run();
-            result.append(getRecordsByLap());
+            result.append(getRecordsTextByLap());
             result.append("\n");
         }
 
         return result.toString();
 	}
 
-    public String getRecordsByLap() {
-        return cars.getRecords();
+    public String getRecordsTextByLap() {
+        return cars.getRecordsText();
     }
 }

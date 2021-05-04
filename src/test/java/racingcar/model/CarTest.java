@@ -40,13 +40,13 @@ class CarTest {
 
     @Test
     @DisplayName("Car 레코드 비교 함수 검증.")
-    void compareRecord() {
+    void compareTo() {
         Car car = new Car("car");
         Car otherCar = new Car("other");
 
         car.addRecord(4);
         otherCar.addRecord(2);
 
-        assertThat(car.compareRecord(otherCar)).isPositive();
+        assertThat(car.compareTo(otherCar)).isPositive();
     }
 }
