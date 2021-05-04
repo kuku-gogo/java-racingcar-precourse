@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import racingcar.etc.Message;
 
-public class LapsTest {
+class LapsTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"0", "-1"})

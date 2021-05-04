@@ -24,4 +24,20 @@ public class Winners {
     protected List<Car> getWinnerList() {
         return this.winnerList;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+
+        if (!this.winnerList.isEmpty()) {
+            result.append(this.winnerList.get(0).getName());
+        }
+
+        for (int i = 1; i < this.winnerList.size(); i++) {
+            result.append(", ");
+            result.append(this.winnerList.get(i).getName());
+        }
+
+        return result.toString();
+    }
 }

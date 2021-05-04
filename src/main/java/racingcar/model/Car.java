@@ -1,7 +1,5 @@
 package racingcar.model;
 
-import java.util.UUID;
-
 import racingcar.etc.Message;
 import racingcar.etc.Utils;
 

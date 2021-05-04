@@ -5,20 +5,20 @@ import java.util.List;
 
 public class Records {
     private final String carName;
-    private List<Integer> records = new ArrayList<>();
+    private List<Integer> recordList = new ArrayList<>();
 
     public Records(String carName) {
         this.carName = carName;
     }
 
     public void addRecord(int i) {
-        records.add(i);
+        recordList.add(i);
     }
 
     public int getTotalRecords() {
         int total = 0;
 
-        for (int record : this.records) {
+        for (int record : this.recordList) {
             total += record;
         }
 

@@ -19,6 +19,7 @@ public class RacingCar {
         Race race = new Race(cars, laps);
 
         ui.showMessage(race.start());
+        ui.showMessage(race.announceWinners());
     }
 
     private static Laps createLaps(RacingCarUi ui) {

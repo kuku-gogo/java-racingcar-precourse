@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class RecordsTest {
+class RecordsTest {
 
     @Test
     @DisplayName("레코드 기록후 전체 레코드 조회시 기록된 총합이 나오는지 확인.")

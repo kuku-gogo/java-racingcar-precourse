@@ -55,7 +55,7 @@ public class Cars {
 		return result.toString();
 	}
 
-	protected List<Car> getCarList() {
+	public List<Car> getCarList() {
         return this.carList;
 	}
 }
